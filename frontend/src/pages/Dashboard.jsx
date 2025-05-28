@@ -47,7 +47,7 @@ export default function DashboardPage() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const profileRes = await authFetch("/api/profile/");
+                const profileRes = await authFetch("${API_URL}/api/profile/");
                 const profileData = await profileRes.json();
                 setBmi(profileData.bmi);
                 setBodyFat(profileData.body_fat);
@@ -57,7 +57,7 @@ export default function DashboardPage() {
                     .toString()
                     .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`;
 
-                const workoutRes = await authFetch(`/api/workouts/?date=${dateStr}`);
+                const workoutRes = await authFetch(`${API_URL}/api/workouts/?date=${dateStr}`);
                 const workoutData = await workoutRes.json();
                 setTodayWorkout(workoutData.exercises || []);
 

@@ -11,7 +11,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
-            const res = await fetch("/api/auth/login/", {
+            const res = await fetch("${API_URL}/api/auth/login/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username: email, password }),

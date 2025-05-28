@@ -31,7 +31,7 @@ export default function NutritionPage() {
 
     const total = getTotalMacro();
     useEffect(() => {
-        authFetch("/api/profile/")
+        authFetch("${API_URL}/api/profile/")
             .then((res) => res.json())
             .then((data) => {
                 setGender(data.gender);
@@ -64,7 +64,7 @@ export default function NutritionPage() {
     const fetchMealPlan = async () => {
         setLoading(true);
         try {
-            const res = await authFetch("/api/ai-meal-plan/", {
+            const res = await authFetch("${API_URL}/api/ai-meal-plan/", {
                 method: "POST",
                 body: JSON.stringify({ gender, bmi, goal }),
             });
@@ -115,7 +115,7 @@ export default function NutritionPage() {
 
     const handleSubstituteDish = async (mealKey, dishIndex, dishName) => {
         try {
-            const res = await authFetch("/api/ai-substitute-dish/", {
+            const res = await authFetch("${API_URL}/api/ai-substitute-dish/", {
                 method: "POST",
                 body: JSON.stringify({ dish: dishName, meal: mealKey, goal }),
             });

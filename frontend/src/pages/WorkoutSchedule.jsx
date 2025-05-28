@@ -63,7 +63,7 @@ export default function WorkoutSchedule() {
 
     const fetchLibrary = async () => {
         try {
-            const res = await authFetch("/api/exercise-library/");
+            const res = await authFetch("${API_URL}/api/exercise-library/");
             if (!res.ok) throw new Error("Không thể lấy danh sách thư viện");
             const data = await res.json();
             setLibraryExercises(data);
@@ -76,7 +76,7 @@ export default function WorkoutSchedule() {
     const fetchExercises = async (dateStr) => {
         try {
 
-            const res = await authFetch(`/api/workouts/?date=${dateStr}`);
+            const res = await authFetch(`${API_URL}/api/workouts/?date=${dateStr}`);
             if (!res.ok) throw new Error("Không lấy được lịch tập");
             const data = await res.json();
 
@@ -92,7 +92,7 @@ export default function WorkoutSchedule() {
 
     const fetchBMI = async () => {
         try {
-            const res = await authFetch("/api/profile/");
+            const res = await authFetch("${API_URL}/api/profile/");
             if (!res.ok) throw new Error("Không lấy được chỉ số BMI");
             const data = await res.json();
             setBmi(data.bmi || 22);
@@ -284,7 +284,7 @@ export default function WorkoutSchedule() {
                                                 : defaultMuscleGroups[selectedDateIndex];
                                         try {
                                             setIsGenerating(true);
-                                            const res = await authFetch("/api/ai-generate-workout/", {
+                                            const res = await authFetch("${API_URL}/api/ai-generate-workout/", {
                                                 method: "POST",
                                                 headers: {
                                                     "Content-Type": "application/json",
@@ -319,7 +319,7 @@ export default function WorkoutSchedule() {
 
                                         try {
                                             setIsGenerating(true);
-                                            const res = await authFetch("/api/workouts/reset/", {
+                                            const res = await authFetch("${API_URL}/api/workouts/reset/", {
                                                 method: "POST",
                                                 headers: {
                                                     "Content-Type": "application/json",
@@ -403,7 +403,7 @@ export default function WorkoutSchedule() {
                                                     <button
                                                         onClick={async () => {
                                                             try {
-                                                                const res = await authFetch(`/api/workouts/${workoutId}/add-exercise/`, {
+                                                                const res = await authFetch(`${API_URL}/api/workouts/${workoutId}/add-exercise/`, {
                                                                     method: "POST",
                                                                     body: JSON.stringify({ exercise_id: ex.id }),
                                                                 });
@@ -446,7 +446,7 @@ export default function WorkoutSchedule() {
                             <button
                                 onClick={async () => {
                                     try {
-                                        const res = await authFetch(`/api/workouts/${workoutId}/exercise/${ex.id}/`, {
+                                        const res = await authFetch(`${API_URL}/api/workouts/${workoutId}/exercise/${ex.id}/`, {
                                             method: "DELETE",
                                         });
                                         if (!res.ok) throw new Error("Không thể xoá bài tập");
