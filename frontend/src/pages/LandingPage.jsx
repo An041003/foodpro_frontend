@@ -51,7 +51,7 @@ export default function LandingPage() {
                         className="font-bold text-white mb-6"
                         style={{
                             fontFamily: "Montserrat, sans-serif",
-                            fontSize: "48px",
+                            fontSize: "44px",
                             textShadow: "1px 1px 4px rgba(0, 0, 0, 0.4)"
                         }}
                     >
