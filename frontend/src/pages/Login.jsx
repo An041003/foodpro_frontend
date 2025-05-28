@@ -6,7 +6,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const API_URL = "foodpro-app-production-39e9.up.railway.app";
+    const API_URL = "foodpro-app-production.up.railway.app";
 
     const handleLogin = async (e) => {
         e.preventDefault();

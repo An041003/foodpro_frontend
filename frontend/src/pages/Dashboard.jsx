@@ -11,7 +11,7 @@ export default function DashboardPage() {
     const [mealPlan, setMealPlan] = useState(null);
     const [streak, setStreak] = useState(0);
     const [isWin, setIsWin] = useState(true);
-    const API_URL = "foodpro-app-production-39e9.up.railway.app";
+    const API_URL = "foodpro-app-production.up.railway.app";
 
     useEffect(() => {
         const todayStr = new Date().toLocaleDateString("vi-VN");

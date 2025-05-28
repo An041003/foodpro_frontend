@@ -12,7 +12,7 @@ export default function NutritionPage() {
     const [mealPlan, setMealPlan] = useState(null);
     const [selectedDish, setSelectedDish] = useState(null);
     const [loading, setLoading] = useState(false);
-    const API_URL = "foodpro-app-production-39e9.up.railway.app";
+    const API_URL = "foodpro-app-production.up.railway.app";
 
     const getTotalMacro = () => {
         if (!mealPlan) return { protein: 0, carbs: 0, fat: 0 };

@@ -21,7 +21,7 @@ const modeLabels = {
 };
 
 export default function WorkoutSchedule() {
-    const API_URL = "foodpro-app-production-39e9.up.railway.app";
+    const API_URL = "foodpro-app-production.up.railway.app";
     const [selectedMode, setSelectedMode] = useState("");
     const [expandedIndex, setExpandedIndex] = useState(null);
     const [exercises, setExercises] = useState([]);

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
     const navigate = useNavigate();
-    const API_URL = "foodpro-app-production-39e9.up.railway.app";
+    const API_URL = "foodpro-app-production.up.railway.app";
 
     const [form, setForm] = useState({
         email: "",

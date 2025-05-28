@@ -10,7 +10,7 @@ export default function ProgressTracking() {
 
     const [uid, setUid] = useState(() => localStorage.getItem("user_id"));
     const [history, setHistory] = useState([]);
-    const API_URL = "foodpro-app-production-39e9.up.railway.app";
+    const API_URL = "foodpro-app-production.up.railway.app";
 
     const [gender, setGender] = useState("");
     const [weight, setWeight] = useState("");
