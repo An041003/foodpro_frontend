@@ -12,6 +12,7 @@ export default function NutritionPage() {
     const [mealPlan, setMealPlan] = useState(null);
     const [selectedDish, setSelectedDish] = useState(null);
     const [loading, setLoading] = useState(false);
+    const API_URL = "foodpro-app-production-39e9.up.railway.app";
 
     const getTotalMacro = () => {
         if (!mealPlan) return { protein: 0, carbs: 0, fat: 0 };
@@ -31,7 +32,7 @@ export default function NutritionPage() {
 
     const total = getTotalMacro();
     useEffect(() => {
-        authFetch("${API_URL}/api/profile/")
+        authFetch(`${API_URL}/api/profile/`)
             .then((res) => res.json())
             .then((data) => {
                 setGender(data.gender);
@@ -64,7 +65,7 @@ export default function NutritionPage() {
     const fetchMealPlan = async () => {
         setLoading(true);
         try {
-            const res = await authFetch("${API_URL}/api/ai-meal-plan/", {
+            const res = await authFetch(`${API_URL}/api/ai-meal-plan/`, {
                 method: "POST",
                 body: JSON.stringify({ gender, bmi, goal }),
             });
@@ -115,7 +116,7 @@ export default function NutritionPage() {
 
     const handleSubstituteDish = async (mealKey, dishIndex, dishName) => {
         try {
-            const res = await authFetch("${API_URL}/api/ai-substitute-dish/", {
+            const res = await authFetch(`${API_URL}/api/ai-substitute-dish/`, {
                 method: "POST",
                 body: JSON.stringify({ dish: dishName, meal: mealKey, goal }),
             });

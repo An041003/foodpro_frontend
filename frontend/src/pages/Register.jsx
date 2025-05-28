@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
     const navigate = useNavigate();
+    const API_URL = "foodpro-app-production-39e9.up.railway.app";
+
     const [form, setForm] = useState({
         email: "",
         password: "",
@@ -32,7 +34,7 @@ export default function RegisterPage() {
         }
 
         try {
-            const res = await fetch("${API_URL}/api/auth/register/", {
+            const res = await fetch(`${API_URL}/api/auth/register/`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

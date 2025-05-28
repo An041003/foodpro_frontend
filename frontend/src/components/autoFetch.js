@@ -18,8 +18,9 @@ export async function authFetch(url, options = {}) {
         // Nếu access token hết hạn
         if (res.status === 401) {
             const refresh = localStorage.getItem("refresh");
+            const API_URL = "foodpro-app-production-39e9.up.railway.app";
 
-            const refreshRes = await fetch("${API_URL}/api/token/refresh/", {
+            const refreshRes = await fetch(`${API_URL}/api/token/refresh/`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ refresh }),

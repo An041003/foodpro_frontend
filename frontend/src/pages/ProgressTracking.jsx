@@ -10,6 +10,7 @@ export default function ProgressTracking() {
 
     const [uid, setUid] = useState(() => localStorage.getItem("user_id"));
     const [history, setHistory] = useState([]);
+    const API_URL = "foodpro-app-production-39e9.up.railway.app";
 
     const [gender, setGender] = useState("");
     const [weight, setWeight] = useState("");
@@ -36,7 +37,7 @@ export default function ProgressTracking() {
     }, [uid]);
 
     useEffect(() => {
-        authFetch("${API_URL}/api/profile/")
+        authFetch(`${API_URL}/api/profile/`)
 
             .then((res) => res.json())
             .then((data) => {
@@ -73,7 +74,7 @@ export default function ProgressTracking() {
         e.preventDefault();
 
         try {
-            const res = await authFetch("${API_URL}/api/profile/", {
+            const res = await authFetch(`${API_URL}/api/profile/`, {
                 method: "PUT",
                 body: JSON.stringify({
                     gender,

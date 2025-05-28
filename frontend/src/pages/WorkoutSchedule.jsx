@@ -21,6 +21,7 @@ const modeLabels = {
 };
 
 export default function WorkoutSchedule() {
+    const API_URL = "foodpro-app-production-39e9.up.railway.app";
     const [selectedMode, setSelectedMode] = useState("");
     const [expandedIndex, setExpandedIndex] = useState(null);
     const [exercises, setExercises] = useState([]);
@@ -63,7 +64,7 @@ export default function WorkoutSchedule() {
 
     const fetchLibrary = async () => {
         try {
-            const res = await authFetch("${API_URL}/api/exercise-library/");
+            const res = await authFetch(`${API_URL}/api/exercise-library/`);
             if (!res.ok) throw new Error("Không thể lấy danh sách thư viện");
             const data = await res.json();
             setLibraryExercises(data);
@@ -92,7 +93,7 @@ export default function WorkoutSchedule() {
 
     const fetchBMI = async () => {
         try {
-            const res = await authFetch("${API_URL}/api/profile/");
+            const res = await authFetch(`${API_URL}/api/profile/`);
             if (!res.ok) throw new Error("Không lấy được chỉ số BMI");
             const data = await res.json();
             setBmi(data.bmi || 22);
@@ -284,7 +285,7 @@ export default function WorkoutSchedule() {
                                                 : defaultMuscleGroups[selectedDateIndex];
                                         try {
                                             setIsGenerating(true);
-                                            const res = await authFetch("${API_URL}/api/ai-generate-workout/", {
+                                            const res = await authFetch(`${API_URL}/api/ai-generate-workout/`, {
                                                 method: "POST",
                                                 headers: {
                                                     "Content-Type": "application/json",
@@ -319,7 +320,7 @@ export default function WorkoutSchedule() {
 
                                         try {
                                             setIsGenerating(true);
-                                            const res = await authFetch("${API_URL}/api/workouts/reset/", {
+                                            const res = await authFetch(`${API_URL}/api/workouts/reset/`, {
                                                 method: "POST",
                                                 headers: {
                                                     "Content-Type": "application/json",
